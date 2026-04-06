@@ -225,6 +225,75 @@
   .region-body h4 { font-size:0.9rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
   .region-body p { font-size:0.8rem; color:var(--grey); line-height:1.5; }
 
+  /* ── FIRST FOUNDERS ── */
+  .founders { background:var(--white); overflow:hidden; }
+  .founders-intro { max-width:640px; }
+  .founders-layout { display:grid; grid-template-columns:1fr; gap:48px; margin-top:56px; }
+  .founders-pillars { display:grid; grid-template-columns:1fr; gap:20px; }
+  .founder-pillar {
+    position:relative; background:var(--off-white);
+    border:1px solid var(--border); border-radius:var(--radius);
+    padding:32px 28px 28px; overflow:hidden;
+    transition:transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+  .founder-pillar::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform:scaleX(0); transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  .founder-pillar:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(31,54,103,0.11); border-color:rgba(236,179,68,0.4); }
+  .founder-pillar:hover::before { transform:scaleX(1); }
+  .founder-pillar-icon {
+    width:48px; height:48px; border-radius:12px;
+    background:linear-gradient(135deg, var(--blue), var(--blue-light));
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.35rem; margin-bottom:18px; flex-shrink:0;
+  }
+  .founder-pillar h4 { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
+  .founder-pillar p { font-size:0.88rem; color:var(--grey); line-height:1.7; }
+  .founders-visual {
+    background:linear-gradient(145deg, var(--navy) 0%, var(--blue-light) 100%);
+    border-radius:20px; padding:44px 36px; color:white;
+    position:relative; overflow:hidden; display:flex; flex-direction:column; gap:28px;
+  }
+  .founders-visual::after {
+    content:''; position:absolute;
+    width:320px; height:320px; border-radius:50%;
+    background:rgba(236,179,68,0.08);
+    right:-80px; bottom:-80px; pointer-events:none;
+  }
+  .founders-visual::before {
+    content:''; position:absolute;
+    width:180px; height:180px; border-radius:50%;
+    background:rgba(255,255,255,0.04);
+    left:-40px; top:-40px; pointer-events:none;
+  }
+  .founders-visual-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(236,179,68,0.18); border:1px solid rgba(236,179,68,0.4);
+    color:var(--gold-light); font-size:0.72rem; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase;
+    padding:6px 14px; border-radius:20px; width:fit-content;
+  }
+  .founders-visual-dot { width:6px; height:6px; border-radius:50%; background:var(--gold-light); }
+  .founders-visual h3 { font-size:clamp(1.5rem,3vw,2rem); font-weight:800; line-height:1.2; letter-spacing:-0.4px; }
+  .founders-visual h3 em { font-style:italic; color:var(--gold); }
+  .founders-visual p { font-size:0.92rem; opacity:0.78; line-height:1.75; max-width:460px; }
+  .founders-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:8px; }
+  .founders-stat { text-align:center; }
+  .founders-stat-num { font-size:1.7rem; font-weight:800; color:var(--gold); line-height:1; }
+  .founders-stat-label { font-size:0.72rem; opacity:0.6; margin-top:4px; letter-spacing:0.04em; }
+  .founders-coming { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:rgba(255,255,255,0.65); font-size:0.82rem; font-weight:600; padding:10px 20px; border-radius:8px; }
+
+  @media (min-width:640px) {
+    .founders-pillars { grid-template-columns:1fr 1fr; }
+  }
+  @media (min-width:900px) {
+    .founders-layout { grid-template-columns:1fr 1fr; align-items:start; }
+    .founders-pillars { grid-template-columns:1fr 1fr; }
+  }
+
   /* ── SPONSORS ── */
   .sponsors { background:var(--off-white); }
   .sponsors-inner { max-width:900px; margin:0 auto; }
@@ -314,9 +383,122 @@
     .nav-links a:hover { background:var(--off-white); color:var(--gold); }
     .nav-cta { display:inline-flex !important; }
   }
+
+  /* ── PAGE VIEWS ── */
+  .page { display:none; }
+  .page.active { display:block; }
+
+  /* ── RESOURCES PAGE ── */
+  .resources-hero {
+    background:linear-gradient(135deg, var(--navy) 0%, var(--blue-light) 100%);
+    color:white; padding:72px 28px 64px; text-align:center; position:relative; overflow:hidden;
+  }
+  .resources-hero::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(236,179,68,0.06); right:-120px; top:-120px; pointer-events:none; }
+  .resources-hero::after { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,0.03); left:-60px; bottom:-60px; pointer-events:none; }
+  .resources-hero-inner { max-width:680px; margin:0 auto; position:relative; z-index:1; }
+  .filter-bar { background:var(--white); border-bottom:1px solid var(--border); padding:20px 28px; position:sticky; top:68px; z-index:90; box-shadow:0 2px 12px rgba(31,54,103,0.05); }
+  .filter-bar-inner { max-width:1160px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .filter-label { font-size:0.78rem; font-weight:700; color:var(--grey); letter-spacing:0.06em; text-transform:uppercase; white-space:nowrap; }
+  .filter-pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .filter-pill { padding:8px 18px; border-radius:24px; font-size:0.82rem; font-weight:600; border:1.5px solid var(--border); background:var(--white); color:var(--grey); cursor:pointer; transition:all 0.18s; white-space:nowrap; }
+  .filter-pill:hover { border-color:var(--gold); color:var(--navy); }
+  .filter-pill.active { background:var(--navy); border-color:var(--navy); color:white; }
+  .filter-pill.active[data-location="darlington"] { background:#D4770A; border-color:#D4770A; }
+  .filter-pill.active[data-location="durham"] { background:#2E7D32; border-color:#2E7D32; }
+  .filter-pill.active[data-location="newcastle"] { background:var(--blue-light); border-color:var(--blue-light); }
+  .filter-count { margin-left:auto; font-size:0.8rem; color:var(--grey); font-weight:500; white-space:nowrap; }
+  .resources-main { max-width:1160px; margin:0 auto; padding:56px 28px 96px; }
+  .resource-section { margin-bottom:72px; }
+  .resource-section-header { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .resource-section-badge { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 14px; border-radius:20px; }
+  .badge-delivery { background:rgba(236,179,68,0.15); color:#b8841a; border:1px solid rgba(236,179,68,0.35); }
+  .badge-community { background:rgba(31,54,103,0.1); color:var(--blue); border:1px solid rgba(31,54,103,0.2); }
+  .resource-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:800; color:var(--navy); letter-spacing:-0.4px; margin-bottom:6px; }
+  .resource-section h2 em { font-style:italic; color:var(--gold); }
+  .resource-section > p { font-size:0.92rem; color:var(--grey); line-height:1.65; max-width:560px; margin-bottom:36px; }
+  .loc-badge { display:inline-flex; align-items:center; gap:5px; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:12px; }
+  .loc-darlington { background:rgba(212,119,10,0.12); color:#b8620a; }
+  .loc-durham { background:rgba(46,125,50,0.12); color:#2E7D32; }
+  .loc-newcastle { background:rgba(40,69,160,0.12); color:var(--blue-light); }
+  .loc-northeast { background:rgba(31,54,103,0.1); color:var(--navy); }
+  .resource-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--card-shadow); margin-bottom:20px; overflow:hidden; transition:box-shadow 0.2s, transform 0.2s; }
+  .resource-card:hover { box-shadow:0 8px 32px rgba(31,54,103,0.13); transform:translateY(-2px); }
+  .resource-card.hidden { display:none; }
+  .card-top { padding:24px 28px 20px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .card-identity { display:flex; flex-direction:column; gap:6px; }
+  .card-name { font-size:1rem; font-weight:700; color:var(--navy); }
+  .card-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card-type { font-size:0.78rem; color:var(--grey); }
+  .card-badge { font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:5px 14px; border-radius:8px; white-space:nowrap; text-align:right; }
+  .badge-exclusive { background:var(--navy); color:white; }
+  .badge-partner { background:var(--gold); color:white; }
+  .badge-sponsor { background:#16a34a; color:white; }
+  .badge-free { background:#7c3aed; color:white; }
+  .badge-discount { font-size:0.9rem; font-weight:800; color:var(--gold); }
+  .card-body { padding:0 28px 24px; }
+  .card-body > p { font-size:0.9rem; color:var(--grey); line-height:1.7; margin-bottom:18px; }
+  .offer-grid { display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:18px; }
+  .offer-item { background:var(--off-white); border:1px solid var(--border); border-radius:10px; padding:16px 18px; }
+  .offer-item h5 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:5px; }
+  .offer-item p { font-size:0.82rem; color:var(--grey); line-height:1.6; }
+  .offer-item .strikethrough { text-decoration:line-through; color:var(--grey); font-size:0.82rem; }
+  .offer-item .price-new { color:#16a34a; font-weight:700; font-size:0.95rem; }
+  .features-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+  .feature-item { display:flex; align-items:flex-start; gap:8px; font-size:0.83rem; color:var(--grey); line-height:1.5; }
+  .feature-item::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px; }
+  .stats-strip { background:var(--navy); border-radius:10px; padding:16px 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px; text-align:center; }
+  .stat-item-val { font-size:1.1rem; font-weight:800; color:var(--gold); }
+  .stat-item-lbl { font-size:0.7rem; color:rgba(255,255,255,0.55); margin-top:2px; }
+  .app-badges { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .app-badge { display:inline-flex; align-items:center; gap:6px; background:var(--navy); color:white; font-size:0.78rem; font-weight:600; padding:8px 16px; border-radius:8px; }
+  .tag-pills { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+  .tag-pill { font-size:0.72rem; font-weight:600; padding:4px 10px; border-radius:12px; background:var(--light-grey); color:var(--grey); border:1px solid var(--border); }
+  .card-footer { padding:16px 28px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; background:var(--off-white); }
+  .card-link { font-size:0.85rem; font-weight:700; color:var(--blue); display:inline-flex; align-items:center; gap:5px; transition:color 0.15s; }
+  .card-link:hover { color:var(--gold); }
+  .card-ref { font-size:0.75rem; color:var(--grey); background:var(--border); padding:4px 10px; border-radius:6px; }
+  .how-to { font-size:0.82rem; color:var(--grey); background:rgba(236,179,68,0.1); border:1px solid rgba(236,179,68,0.25); border-radius:8px; padding:12px 16px; margin-bottom:16px; }
+  .how-to strong { color:var(--navy); }
+  .price-block { padding:16px 28px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  .price-main { font-size:2rem; font-weight:800; color:var(--navy); }
+  .price-main span { font-size:0.9rem; font-weight:500; color:var(--grey); }
+  .price-note { font-size:0.78rem; color:var(--grey); margin-top:2px; }
+  .btn-activate { background:var(--gold); color:white; font-family:"Inter",sans-serif; font-weight:700; font-size:0.9rem; padding:13px 28px; border:none; border-radius:10px; cursor:pointer; transition:background 0.2s, transform 0.15s; }
+  .btn-activate:hover { background:var(--gold-light); transform:translateY(-1px); }
+  .two-col-offers { display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:16px; }
+  .roam-split { display:grid; grid-template-columns:1fr; gap:20px; margin-bottom:16px; }
+  .roam-col h5 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
+  .roam-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
+  .roam-list li { font-size:0.83rem; color:var(--grey); display:flex; align-items:flex-start; gap:7px; line-height:1.5; }
+  .roam-list li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+  .empty-state { text-align:center; padding:72px 28px; display:none; }
+  .empty-state.visible { display:block; }
+  .empty-state h3 { font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .empty-state p { color:var(--grey); font-size:0.9rem; }
+  .res-cta-banner { background:linear-gradient(135deg, var(--navy), var(--blue-light)); border-radius:20px; padding:52px 40px; text-align:center; color:white; margin-top:72px; position:relative; overflow:hidden; }
+  .res-cta-banner::after { content:''; position:absolute; width:280px; height:280px; border-radius:50%; background:rgba(236,179,68,0.08); right:-60px; bottom:-60px; pointer-events:none; }
+  .res-cta-banner h2 { font-size:clamp(1.4rem,3vw,1.9rem); font-weight:800; margin-bottom:12px; }
+  .res-cta-banner h2 em { font-style:italic; color:var(--gold); }
+  .res-cta-banner p { opacity:0.8; font-size:0.92rem; max-width:480px; margin:0 auto 28px; line-height:1.7; }
+  .res-cta-btn { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:white; font-weight:700; font-size:0.92rem; padding:14px 32px; border-radius:10px; border:none; cursor:pointer; transition:background 0.2s, transform 0.15s; }
+  .res-cta-btn:hover { background:var(--gold-light); transform:translateY(-1px); }
+  @media (min-width:640px) {
+    .offer-grid { grid-template-columns:1fr 1fr; }
+    .two-col-offers { grid-template-columns:1fr 1fr; }
+    .roam-split { grid-template-columns:1fr 1fr; }
+  }
+  @media (min-width:1024px) {
+    .resources-main { padding:64px 56px 96px; }
+    .filter-bar { padding:20px 56px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- ════════════════════════════════════════
+     PAGE: MAIN (id="page-main")
+════════════════════════════════════════ -->
+<div class="page active" id="page-main">
 
 <!-- ── CONTACT MODAL ── -->
 <div class="modal-overlay" id="contactModal">
@@ -495,6 +677,9 @@
     <a href="#network">Our Network</a>
     <a href="#events">Events</a>
     <a href="#podcast">Podcast</a>
+    <a href="#founders">First Founders</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#" onclick="showPage('page-resources');return false;">Resources</a>
     <a href="#sponsors">Sponsors</a>
     <a href="#contact">Contact</a>
     <a class="nav-cta" onclick="openModal('contactModal')">Get In Touch</a>
@@ -719,6 +904,78 @@
   </div>
 </section>
 
+<!-- ── FIRST FOUNDERS ── -->
+<section class="founders" id="founders">
+  <div class="inner">
+    <div class="section-header fade-in">
+      <div class="section-label">First Founders</div>
+      <h2 class="section-title">Supporting the next generation of<br><em>North East founders</em></h2>
+      <p class="section-sub founders-intro">First Connections believes that great ideas deserve support — regardless of background, age, or experience. First Founders is our commitment to emerging talent across the region.</p>
+    </div>
+
+    <div class="founders-layout">
+
+      <!-- Left: pillars grid -->
+      <div class="founders-pillars">
+
+        <div class="founder-pillar fade-in">
+          <div class="founder-pillar-icon">🤝</div>
+          <h4>Mentorship Connections</h4>
+          <p>We make introductions to experienced business mentors across the North East who have been there, done it, and want to give back to the next generation of founders.</p>
+        </div>
+
+        <div class="founder-pillar fade-in">
+          <div class="founder-pillar-icon">🔗</div>
+          <h4>The Right Introductions</h4>
+          <p>Sometimes one conversation changes everything. We connect emerging founders with the right people — investors, collaborators, coaches, and fellow builders in the region.</p>
+        </div>
+
+        <div class="founder-pillar fade-in">
+          <div class="founder-pillar-icon">🧭</div>
+          <h4>Support & Guidance</h4>
+          <p>From navigating early-stage challenges to finding your footing in the local business community — First Founders provides a soft landing for those just starting out.</p>
+        </div>
+
+        <div class="founder-pillar fade-in">
+          <div class="founder-pillar-icon">🌱</div>
+          <h4>Community & Belonging</h4>
+          <p>Being a founder can be lonely. First Founders plugs emerging talent directly into the wider First Connections network — events, conversations, and a community that has your back.</p>
+        </div>
+
+      </div>
+
+      <!-- Right: vision card -->
+      <div class="founders-visual fade-in">
+        <div class="founders-visual-tag">
+          <span class="founders-visual-dot"></span>
+          Taking Shape
+        </div>
+        <h3>You don't need a<br>business degree to have<br>a <em>brilliant idea</em></h3>
+        <p>First Founders is being built for the people with passion, vision, and drive — who just need the right room, the right people, and the right moment to make it happen.</p>
+        <p>Whether you're pre-launch, in your first year, or simply trying to figure out your next move — this is your community.</p>
+        <div class="founders-stats">
+          <div class="founders-stat">
+            <div class="founders-stat-num">2</div>
+            <div class="founders-stat-label">Active Networks</div>
+          </div>
+          <div class="founders-stat">
+            <div class="founders-stat-num">NE</div>
+            <div class="founders-stat-label">Region-Wide</div>
+          </div>
+          <div class="founders-stat">
+            <div class="founders-stat-num">∞</div>
+            <div class="founders-stat-label">Connections</div>
+          </div>
+        </div>
+        <div class="founders-coming">
+          🌱 &nbsp;First Founders — Coming Soon
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── SPONSORS ── -->
 <section class="sponsors" id="sponsors">
   <div class="sponsors-inner">
@@ -789,6 +1046,342 @@
   </div>
 </section>
 
+</div><!-- /page-main -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: RESOURCES (id="page-resources")
+════════════════════════════════════════ -->
+<div class="page" id="page-resources">
+
+<!-- ── RESOURCES NAV ── -->
+<nav>
+  <div class="logo" onclick="showPage('page-main')" style="cursor:pointer;">First <em>Connections</em></div>
+  <button class="hamburger" id="menuBtnR" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navMenuR">
+    <a href="#" onclick="showPage('page-main');return false;">About</a>
+    <a href="#" onclick="showPage('page-main');return false;">Our Network</a>
+    <a href="#" onclick="showPage('page-main');return false;">Events</a>
+    <a href="#" onclick="showPage('page-main');return false;">First Founders</a>
+    <a href="#" onclick="showPage('page-main');return false;">Podcast</a>
+    <a href="#" style="color:var(--gold);">Resources</a>
+    <a href="#" onclick="showPage('page-main');return false;">Sponsors</a>
+    <a href="#" onclick="showPage('page-main');return false;">Contact</a>
+    <a class="nav-cta" onclick="showPage('page-main');openModal('contactModal');">Get In Touch</a>
+  </div>
+</nav>
+
+<!-- ── RESOURCES HERO ── -->
+<div class="resources-hero">
+  <div class="resources-hero-inner">
+    <div class="hero-tag" style="display:inline-block;background:rgba(236,179,68,0.2);border:1px solid rgba(236,179,68,0.4);color:rgba(255,255,255,0.9);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:22px;">Resources &amp; Offers</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-0.8px;margin-bottom:18px;">Business <em style="font-style:italic;color:var(--gold);">Resources</em> &amp; Offers</h1>
+    <p style="font-size:1rem;opacity:0.8;line-height:1.75;max-width:520px;margin:0 auto;">Exclusive discounts, trusted services, and powerful business tools from our partners — available to the First Connections community across the North East.</p>
+  </div>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <span class="filter-label">Filter by location:</span>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-location="all">🗺 All Locations</button>
+      <button class="filter-pill" data-location="darlington">📍 Darlington</button>
+      <button class="filter-pill" data-location="durham">📍 Durham</button>
+      <button class="filter-pill" data-location="newcastle">📍 Newcastle</button>
+    </div>
+    <span class="filter-count" id="filterCount">Showing all 7 offers</span>
+  </div>
+</div>
+
+<!-- ── RESOURCES MAIN ── -->
+<div class="resources-main">
+
+  <!-- SECTION 1: DELIVERY PARTNERS -->
+  <div class="resource-section fade-in">
+    <div class="resource-section-header">
+      <span class="resource-section-badge badge-delivery">Delivery Partners</span>
+    </div>
+    <h2>Featured <em>Partner Offers</em></h2>
+    <p>These partners have made a commitment to the First Connections community — offering real value and exclusive deals to every member.</p>
+
+    <!-- The Ironing Man -->
+    <div class="resource-card" data-locations="darlington">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">The Ironing Man</div>
+          <div class="card-meta">
+            <span class="card-type">Ironing &amp; Laundry Service</span>
+            <span class="loc-badge loc-darlington">📍 Darlington</span>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="card-badge badge-exclusive">Exclusive Discount</div>
+          <div class="badge-discount" style="margin-top:6px;">10% Off</div>
+          <div style="font-size:0.72rem;color:var(--grey);margin-top:2px;">Use code: NC110</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Fast, friendly ironing and laundry service with collection and delivery available across the region. A proud delivery partner of First Connections, supporting our local business community.</p>
+        <p>As part of the First Connections community, you can enjoy an exclusive discount on all their services. Simply quote <strong>Newcastle First Networking</strong> when you get in touch.</p>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="#" target="_blank">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Business Service Hub -->
+    <div class="resource-card" data-locations="newcastle darlington durham">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">Business Service Hub</div>
+          <div class="card-meta">
+            <span class="card-type">Premium Business Tools Bundle</span>
+            <span class="loc-badge loc-northeast">🗺 All Locations</span>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="card-badge badge-partner">Partner Offer</div>
+          <div class="badge-discount" style="margin-top:6px;">£24.99<span style="font-size:0.75rem;font-weight:500;color:var(--grey);">/month + VAT</span></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Everything your business needs — all in one place, for just <strong>£24.99/month + VAT</strong>. No hidden fees, no long-term contracts. A bundle of premium tools typically worth over <strong>£1,000/year</strong>.</p>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:10px;">What's included:</div>
+        <div class="features-grid">
+          <div class="feature-item">Bookkeeping Software — QuickBooks, Xero &amp; Sage</div>
+          <div class="feature-item">Office 365 &amp; All Apps — Full Microsoft 365 membership</div>
+          <div class="feature-item">Acronis Cyber Security — Enterprise-grade data backup &amp; recovery</div>
+          <div class="feature-item">Dropbox &amp; E-Signatures — Cloud storage plus e-signatures</div>
+        </div>
+        <div style="background:rgba(236,179,68,0.1);border:1px solid rgba(236,179,68,0.3);border-radius:8px;padding:12px 16px;font-size:0.82rem;color:var(--navy);">
+          ⭐ <strong>Chartered Accountant Support (Worth £700/year)</strong> — 4 free hours of chartered accountant support per year — one hour per quarter.
+        </div>
+      </div>
+      <div class="price-block">
+        <div>
+          <div class="price-main">£24.99<span>/month + VAT</span></div>
+          <div class="price-note">No contracts. No hidden fees. Cancel anytime.</div>
+        </div>
+        <button class="btn-activate">Activate Now →</button>
+      </div>
+    </div>
+
+    <!-- NE BIC -->
+    <div class="resource-card" data-locations="newcastle darlington durham">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">NE BIC — Newcastle Workspace</div>
+          <div class="card-meta">
+            <span class="card-type">Sponsor</span>
+            <span class="loc-badge loc-newcastle">📍 Newcastle</span>
+            <span class="loc-badge loc-darlington">📍 Darlington</span>
+            <span class="loc-badge loc-durham">📍 Durham</span>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="card-badge badge-sponsor">Exclusive Offers</div>
+          <div style="font-size:0.72rem;color:var(--grey);margin-top:4px;max-width:140px;text-align:right;">Free Day Pass &amp; 10% Off Meeting Rooms</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Superb co-working spaces and meeting rooms in the heart of Newcastle. Two centres — Business Central and Innovation Central — offering offices, meeting rooms, and a co-working lounge to suit businesses of all sectors.</p>
+        <p>As a proud sponsor of First Connections, NE BIC are offering our community two exclusive deals:</p>
+        <div class="two-col-offers">
+          <div class="offer-item">
+            <h5>🏢 Free Co-Working Day Pass</h5>
+            <p>Enjoy a full free day in the co-working area — experience the space, the community, and the facilities.</p>
+          </div>
+          <div class="offer-item">
+            <h5>📅 10% Off First Meeting Room Booking</h5>
+            <p>Professional spaces for presentations, workshops, and team sessions.</p>
+          </div>
+        </div>
+        <div class="how-to">
+          <strong>How to book:</strong> To arrange either offer, simply get in touch with the team:<br>
+          <span style="color:var(--blue);font-weight:600;">hello@first-connections.co.uk</span> &nbsp;·&nbsp; <span style="font-weight:600;">0191 516 6000</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="#" target="_blank">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Roam -->
+    <div class="resource-card" data-locations="newcastle darlington durham">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">Roam</div>
+          <div class="card-meta">
+            <span class="card-type">Your gateway to everything local</span>
+            <span class="loc-badge loc-northeast">🗺 All Locations</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="roam-split">
+          <div class="roam-col">
+            <h5>For Residents &amp; Consumers</h5>
+            <p style="font-size:0.82rem;color:var(--grey);margin-bottom:10px;">Download the Roam app and stay connected to your local community. Discover:</p>
+            <ul class="roam-list">
+              <li>Regional local community news</li>
+              <li>Exclusive offers &amp; discount codes</li>
+              <li>Local events happening near you</li>
+              <li>Deals from businesses in your area</li>
+            </ul>
+            <div style="margin-top:16px;"><button class="btn-activate" style="width:auto;padding:10px 22px;font-size:0.85rem;">Download the App</button></div>
+          </div>
+          <div class="roam-col">
+            <h5>For Local Businesses</h5>
+            <p style="font-size:0.82rem;color:var(--grey);margin-bottom:10px;">Get your business listed on Roam and reach local customers. The Business Service Hub includes:</p>
+            <ul class="roam-list">
+              <li>QuickBooks, Xero, Sage — your choice</li>
+              <li>Office 365 full suite</li>
+              <li>Acronis cyber security &amp; backup</li>
+              <li>Dropbox &amp; e-signatures</li>
+              <li>4hrs chartered accountant support/yr</li>
+            </ul>
+            <div style="margin-top:16px;"><button class="btn-activate" style="width:auto;padding:10px 22px;font-size:0.85rem;">Activate Business Hub — £24.99/mo</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /section delivery -->
+
+  <!-- SECTION 2: COMMUNITY RESOURCES -->
+  <div class="resource-section fade-in">
+    <div class="resource-section-header">
+      <span class="resource-section-badge badge-community">Community Resources</span>
+    </div>
+    <h2>Free tools to support your <em>team &amp; community</em></h2>
+    <p>Free apps built right here in the North East — supporting wellbeing and employment readiness.</p>
+
+    <!-- Emotional Wellbeing Indicator -->
+    <div class="resource-card" data-locations="newcastle darlington durham">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">Emotional Wellbeing Indicator</div>
+          <div class="card-meta">
+            <span class="card-type">Free App</span>
+            <span class="loc-badge loc-northeast">🗺 All Locations</span>
+          </div>
+        </div>
+        <div class="card-badge badge-free">Free</div>
+      </div>
+      <div class="card-body">
+        <p>A smarter way to improve your emotional health. This free app uses marginal gains — small, targeted actions that lead to big results.</p>
+        <p>Answer 100 simple yes-or-no questions to assess key areas of your wellbeing. When you respond negatively, the app provides practical, personalised advice to help you improve. Your unique action plan evolves with you, helping you build lasting habits and track progress over time.</p>
+        <div class="stats-strip">
+          <div class="stat-item"><div class="stat-item-val">100</div><div class="stat-item-lbl">Yes/No Questions</div></div>
+          <div class="stat-item"><div class="stat-item-val">Free</div><div class="stat-item-lbl">Always</div></div>
+          <div class="stat-item"><div class="stat-item-val" style="font-size:0.85rem;">iOS &amp; Android</div><div class="stat-item-lbl">Available On</div></div>
+        </div>
+        <div class="tag-pills">
+          <span class="tag-pill">Emotional Health</span>
+          <span class="tag-pill">Marginal Gains</span>
+          <span class="tag-pill">Progress Tracking</span>
+          <span class="tag-pill">Mentoring Tool</span>
+        </div>
+        <div class="app-badges">
+          <span class="app-badge">🍎 App Store</span>
+          <span class="app-badge">▶ Google Play</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="#" target="_blank">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Preparation For Employment -->
+    <div class="resource-card" data-locations="newcastle darlington durham">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">Preparation For Employment</div>
+          <div class="card-meta">
+            <span class="card-type">Free App</span>
+            <span class="loc-badge loc-northeast">🗺 All Locations</span>
+          </div>
+        </div>
+        <div class="card-badge badge-free">Free</div>
+      </div>
+      <div class="card-body">
+        <p>A smarter way to prepare yourself for employment. This free app uses marginal gains — small, targeted actions that lead to big results.</p>
+        <p>Answer 100 simple yes-or-no questions to assess key areas. The app provides practical, personalised advice and generates a <strong>certificate of employability</strong> to present to potential employers.</p>
+        <div class="stats-strip">
+          <div class="stat-item"><div class="stat-item-val">100</div><div class="stat-item-lbl">Yes/No Questions</div></div>
+          <div class="stat-item"><div class="stat-item-val">Free</div><div class="stat-item-lbl">Always</div></div>
+          <div class="stat-item"><div class="stat-item-val" style="font-size:0.85rem;">iOS &amp; Android</div><div class="stat-item-lbl">Available On</div></div>
+        </div>
+        <div class="tag-pills">
+          <span class="tag-pill">Job Readiness</span>
+          <span class="tag-pill">Marginal Gains</span>
+          <span class="tag-pill">Certificate</span>
+          <span class="tag-pill">Strengths Profile</span>
+        </div>
+        <div class="app-badges">
+          <span class="app-badge">🍎 App Store</span>
+          <span class="app-badge">▶ Google Play</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="#" target="_blank">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Surgotech Solutions -->
+    <div class="resource-card" data-locations="newcastle">
+      <div class="card-top">
+        <div class="card-identity">
+          <div class="card-name">Surgotech Solutions</div>
+          <div class="card-meta">
+            <span class="card-type">Technology &amp; Business Improvement</span>
+            <span class="loc-badge loc-newcastle">📍 Newcastle</span>
+          </div>
+        </div>
+        <div class="card-badge badge-exclusive">Exclusive Offer</div>
+      </div>
+      <div class="card-body">
+        <p>Surgotech Solutions helps businesses unlock their potential through smart technology and proven business improvement strategies. As a First Connections member, you get access to two exclusive deals.</p>
+        <div class="two-col-offers">
+          <div class="offer-item">
+            <h5>📞 Option 1 — Free: 1-Hour Discovery Call</h5>
+            <p>A free, no-obligation consultation to explore how Surgotech can streamline your business operations.</p>
+          </div>
+          <div class="offer-item">
+            <h5>💻 Option 2 — 40% Off: Business Process Audit</h5>
+            <p>An 8-hour audit identifying inefficiencies and delivering a clear improvement roadmap.</p>
+            <div style="margin-top:8px;"><span class="offer-item strikethrough">£895</span> → <span class="price-new">£537</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="#" target="_blank">Visit Website →</a>
+        <span class="card-ref">Reference: Newcastle First Networking</span>
+      </div>
+    </div>
+
+  </div><!-- /section community -->
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" id="emptyState">
+    <h3>No offers found for this location yet</h3>
+    <p>We're always adding new partners. <a href="#" onclick="showPage('page-main');return false;" style="color:var(--blue);font-weight:600;">Get in touch</a> to list your business here.</p>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="res-cta-banner fade-in">
+    <h2>Want your business <em>featured here?</em></h2>
+    <p>We're always looking for great local businesses to partner with. If you'd like your offer featured or have a discount to share with the First Connections community, get in touch.</p>
+    <button class="res-cta-btn" onclick="showPage('page-main');openModal('contactModal');">📬 Get In Touch</button>
+  </div>
+
+</div><!-- /resources-main -->
+
+</div><!-- /page-resources -->
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
@@ -803,7 +1396,7 @@
         <a href="#network">Our Network</a>
         <a href="#events">Events</a>
         <a href="#podcast">Podcast</a>
-        <a href="#sponsors">Sponsors</a>
+        <a href="#" onclick="showPage('page-resources');return false;">Resources</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-col">
@@ -945,6 +1538,60 @@
       document.getElementById("sponsorSuccess").style.display = "none";
     }, 3500);
   }
+
+  // ── PAGE SWITCHING ──
+  function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("active"); });
+    document.getElementById(pageId).classList.add("active");
+    window.scrollTo(0, 0);
+    // Close mobile nav on either page
+    document.getElementById("navMenu").classList.remove("open");
+    if (document.getElementById("navMenuR")) {
+      document.getElementById("navMenuR").classList.remove("open");
+    }
+  }
+
+  // ── RESOURCES NAV HAMBURGER ──
+  document.getElementById("menuBtnR").addEventListener("click", function() {
+    document.getElementById("navMenuR").classList.toggle("open");
+  });
+
+  // ── RESOURCES FILTER ──
+  var filterPills = document.querySelectorAll(".filter-pill");
+  var resourceCards = document.querySelectorAll(".resource-card");
+  var countEl = document.getElementById("filterCount");
+  var emptyState = document.getElementById("emptyState");
+
+  function updateCount(visible) {
+    countEl.textContent = visible === resourceCards.length
+      ? "Showing all " + resourceCards.length + " offers"
+      : "Showing " + visible + " of " + resourceCards.length + " offers";
+  }
+
+  filterPills.forEach(function(pill) {
+    pill.addEventListener("click", function() {
+      filterPills.forEach(function(p) { p.classList.remove("active"); });
+      pill.classList.add("active");
+      var loc = pill.getAttribute("data-location");
+      var visible = 0;
+      resourceCards.forEach(function(card) {
+        var locs = card.getAttribute("data-locations") || "";
+        var show = loc === "all" || locs.includes(loc);
+        card.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+      updateCount(visible);
+      emptyState.classList.toggle("visible", visible === 0);
+    });
+  });
+
+  updateCount(resourceCards.length);
+
+  // ── RESOURCES SCROLL ANIMATIONS ──
+  var resObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll("#page-resources .fade-in").forEach(function(el) { resObserver.observe(el); });
 </script>
 </body>
 </html>
