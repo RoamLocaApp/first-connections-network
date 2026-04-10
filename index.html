@@ -1697,29 +1697,60 @@
     }, 3500);
   }
 
-  function submitNewsletter() {
-    var first = getVal("nf-first"), email = getVal("nf-email");
+  async function submitNewsletter() {
+    var first   = getVal("nf-first");
+    var last    = getVal("nf-last");
+    var email   = getVal("nf-email");
+    var phone   = getVal("nf-phone");
+    var company = getVal("nf-company");
+    var interest = getVal("nf-interest");
+
     if (!first || !email) {
       alert("Please enter your name and email address.");
       return;
     }
-    var subject = encodeURIComponent("Newsletter Signup: " + first + " " + getVal("nf-last"));
-    var body = encodeURIComponent(
-      "Newsletter Signup\n\nName: " + first + " " + getVal("nf-last") +
-      "\nEmail: " + email +
-      "\nPhone: " + getVal("nf-phone") +
-      "\nCompany: " + getVal("nf-company") +
-      "\nInterest: " + getVal("nf-interest")
-    );
-    window.location.href = "mailto:hello@first-connections.co.uk?subject=" + subject + "&body=" + body;
-    document.getElementById("newsletterFormWrap").style.display = "none";
-    document.getElementById("newsletterSuccess").style.display = "block";
-    setTimeout(function() {
-      closeModal("newsletterModal");
-      document.getElementById("newsletterFormWrap").style.display = "block";
-      document.getElementById("newsletterSuccess").style.display = "none";
-    }, 3500);
+
+    // Disable button to prevent double-submit
+    var btn = document.querySelector("#newsletterFormWrap .modal-submit");
+    if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+    try {
+      var res = await fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: first,
+          lastName:  last,
+          email:     email,
+          phone:     phone,
+          company:   company,
+          interest:  interest
+        })
+      });
+
+      if (res.ok) {
+        // Show success state
+        document.getElementById("newsletterFormWrap").style.display = "none";
+        document.getElementById("newsletterSuccess").style.display = "block";
+        setTimeout(function() {
+          closeModal("newsletterModal");
+          document.getElementById("newsletterFormWrap").style.display = "block";
+          document.getElementById("newsletterSuccess").style.display = "none";
+          if (btn) { btn.disabled = false; btn.textContent = "Subscribe Now →"; }
+        }, 3500);
+      } else {
+        var errData = await res.json().catch(function() { return {}; });
+        console.error("Brevo error:", errData);
+        alert("Something went wrong submitting your details. Please try again or email hello@first-connections.co.uk directly.");
+        if (btn) { btn.disabled = false; btn.textContent = "Subscribe Now →"; }
+      }
+    } catch(err) {
+      console.error("Network error:", err);
+      alert("Something went wrong. Please check your connection and try again.");
+      if (btn) { btn.disabled = false; btn.textContent = "Subscribe Now →"; }
+    }
   }
+
 
   function submitSponsor() {
     var first = getVal("sf-first"), email = getVal("sf-email"), company = getVal("sf-company");
