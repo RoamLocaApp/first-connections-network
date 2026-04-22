@@ -2510,7 +2510,8 @@
     if(offersLoaded) return;
     var grid=document.getElementById('community-offers-grid');
     if(!grid) return;
-    var filter='AND({Approved}=1,OR({Site}="'+AT_SITE+'",{Site}="All Sites"))';
+    // Filter works for both Single and Multiple select Site fields
+    var filter='AND({Approved}=1,OR(FIND("'+AT_SITE+'",{Site}),FIND("All Sites",{Site})))';
     var url=AT_API+AT_BASE+'/'+AT_TABLE
       +'?filterByFormula='+encodeURIComponent(filter)
       +'&fields[]=Business+Name&fields[]=Sector&fields[]=Description'
