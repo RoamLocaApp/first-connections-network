@@ -730,6 +730,130 @@
     .resources-main { padding:64px 56px 96px; }
     .filter-bar { padding:20px 56px; }
   }
+
+  /* ── COMMUNITY OFFER CARDS ── */
+  .community-offers-section { padding:56px 28px 0; }
+  .community-offers-section .section-header { text-align:center; margin-bottom:2.5rem; }
+  .community-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.25rem; margin-bottom:2rem; }
+  .community-offer-card { background:#fff; border-radius:12px; overflow:hidden; border:1px solid var(--border); transition:transform 0.2s ease,box-shadow 0.2s ease; display:flex; flex-direction:column; }
+  .community-offer-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(31,54,103,0.12); }
+  .coc-header { background:var(--navy); padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+  .coc-logo { width:38px; height:38px; border-radius:8px; background:rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:var(--gold); flex-shrink:0; overflow:hidden; }
+  .coc-logo img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+  .coc-name { color:#fff; font-size:0.88rem; font-weight:600; margin:0; }
+  .coc-sector { color:rgba(255,255,255,0.55); font-size:0.75rem; margin:0; }
+  .coc-badge { margin-left:auto; background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.7); font-size:0.68rem; font-weight:600; padding:3px 8px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
+  .coc-body { padding:1rem 1.25rem; flex:1; display:flex; flex-direction:column; }
+  .coc-offer-badge { background:#eaf3de; border:1px solid #c0dd97; border-radius:6px; padding:8px 10px; margin-bottom:0.75rem; display:flex; align-items:center; gap:8px; }
+  .coc-offer-value { font-size:1.1rem; font-weight:700; color:#3b6d11; }
+  .coc-offer-detail { font-size:0.75rem; color:#639922; }
+  .coc-offer-code { font-size:0.72rem; color:#3b6d11; font-weight:600; margin-top:2px; }
+  .coc-desc { font-size:0.82rem; color:var(--grey); line-height:1.55; flex:1; margin-bottom:0.75rem; }
+  .coc-link { font-size:0.78rem; color:var(--navy); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:4px; }
+  .coc-link:hover { color:var(--gold); }
+  .coc-submit-card { background:#fff; border:2px dashed var(--border); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.5rem; text-align:center; min-height:200px; cursor:pointer; transition:border-color 0.2s ease; }
+  .coc-submit-card:hover { border-color:var(--gold); }
+  .coc-submit-icon { width:44px; height:44px; border-radius:50%; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:0.75rem; font-size:1.4rem; color:var(--grey); transition:border-color 0.2s,color 0.2s; }
+  .coc-submit-card:hover .coc-submit-icon { border-color:var(--gold); color:var(--gold); }
+  .coc-submit-title { font-size:0.92rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem; }
+  .coc-submit-desc { font-size:0.78rem; color:var(--grey); margin-bottom:1rem; }
+  .coc-loading, .coc-empty { text-align:center; padding:2rem; color:var(--grey); font-size:0.88rem; grid-column:1/-1; }
+  .coc-spinner { width:28px; height:28px; border:3px solid var(--border); border-top-color:var(--gold); border-radius:50%; animation:cocSpin 0.8s linear infinite; margin:0 auto 0.75rem; }
+  @keyframes cocSpin { to { transform:rotate(360deg); } }
+
+  /* ── OFFER SUBMISSION MODAL ── */
+  .offer-modal-overlay { display:none; position:fixed; inset:0; background:rgba(17,26,58,0.75); z-index:2000; align-items:center; justify-content:center; padding:1rem; backdrop-filter:blur(4px); }
+  .offer-modal-overlay.open { display:flex; }
+  .offer-modal { background:#fff; border-radius:16px; width:100%; max-width:580px; max-height:90vh; overflow-y:auto; padding:2rem; position:relative; box-shadow:0 24px 64px rgba(0,0,0,0.2); }
+  .offer-modal-close { position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; font-size:1.4rem; color:var(--grey); line-height:1; padding:4px 8px; border-radius:6px; }
+  .offer-modal-close:hover { background:var(--off-white); }
+  .offer-modal h2 { font-size:1.4rem; color:var(--navy); margin:0 0 0.4rem; font-weight:800; }
+  .offer-modal p.sub { font-size:0.85rem; color:var(--grey); margin:0 0 1.5rem; }
+  .offer-form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem; }
+  .offer-field { display:flex; flex-direction:column; gap:4px; margin-bottom:0.75rem; }
+  .offer-field label { font-size:0.78rem; color:var(--grey); font-weight:600; }
+  .offer-field input, .offer-field textarea { padding:0.55rem 0.75rem; border:1.5px solid var(--border); border-radius:8px; font-size:0.88rem; color:#1a1a2e; background:#fff; font-family:"Inter",sans-serif; transition:border-color 0.2s; }
+  .offer-field input:focus, .offer-field textarea:focus { outline:none; border-color:var(--navy); }
+  .offer-field textarea { resize:vertical; min-height:72px; }
+  .offer-req { color:#e24b4a; }
+  .offer-submit-btn { width:100%; padding:0.85rem; background:var(--gold); color:white; border:none; border-radius:8px; font-size:0.95rem; font-weight:700; cursor:pointer; transition:background 0.2s; margin-top:0.5rem; font-family:"Inter",sans-serif; }
+  .offer-submit-btn:hover { background:var(--gold-light); }
+  .offer-submit-btn:disabled { opacity:0.6; cursor:not-allowed; }
+  .offer-form-note { font-size:0.75rem; color:var(--grey); text-align:center; margin-top:0.6rem; }
+  .offer-success { display:none; text-align:center; padding:2rem 1rem; }
+  .offer-success-icon { width:56px; height:56px; border-radius:50%; background:#eaf3de; color:#3b6d11; font-size:1.6rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+  .offer-success h3 { color:var(--navy); margin-bottom:0.5rem; font-size:1.1rem; }
+  .offer-success p { color:var(--grey); font-size:0.88rem; }
+  @media (max-width:600px) {
+    .offer-form-row { grid-template-columns:1fr; }
+    .offer-modal { padding:1.5rem 1.2rem; border-radius:12px; }
+    .community-grid { grid-template-columns:1fr; }
+  }
+  @media (min-width:1024px) {
+    .community-offers-section { padding:56px 56px 0; }
+  }
+
+  /* ── FC OFFERS NAV PILL ── */
+  .nav-offers {
+    background:var(--navy) !important; color:white !important;
+    border-radius:8px; padding:6px 12px !important;
+    font-weight:700 !important; border:none !important;
+    white-space:nowrap;
+  }
+  .nav-offers:hover { background:var(--blue-light) !important; color:white !important; }
+
+  /* ── FC OFFERS PAGE ── */
+  .offers-hero {
+    background:linear-gradient(160deg, var(--navy) 0%, #0f1c3f 100%);
+    color:white; padding:72px 28px 56px; position:relative; overflow:hidden;
+  }
+  .offers-hero::before {
+    content:''; position:absolute; width:600px; height:600px; border-radius:50%;
+    background:rgba(236,179,68,0.05); right:-150px; top:-150px; pointer-events:none;
+  }
+  .offers-hero-inner { max-width:1160px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:40px; align-items:center; }
+  .offers-hero-label { font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .offers-hero-label::before { content:''; display:block; width:32px; height:2px; background:var(--gold); }
+  .offers-hero h1 { font-size:clamp(2rem,5vw,3rem); font-weight:800; line-height:1.1; letter-spacing:-0.8px; margin-bottom:20px; }
+  .offers-hero h1 em { font-style:italic; color:var(--gold); }
+  .offers-hero p { font-size:0.95rem; opacity:0.75; line-height:1.75; max-width:480px; margin-bottom:32px; }
+  .offers-hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+  .offers-hero-btns .btn-submit { background:var(--gold); color:white; font-family:"Inter",sans-serif; font-weight:700; font-size:0.92rem; padding:13px 26px; border:none; border-radius:10px; cursor:pointer; transition:background 0.2s; }
+  .offers-hero-btns .btn-submit:hover { background:var(--gold-light); }
+  .offers-hero-btns .btn-browse { background:transparent; color:white; font-family:"Inter",sans-serif; font-weight:600; font-size:0.92rem; padding:12px 26px; border:2px solid rgba(255,255,255,0.3); border-radius:10px; cursor:pointer; transition:all 0.2s; text-decoration:none; display:inline-flex; align-items:center; }
+  .offers-hero-btns .btn-browse:hover { border-color:white; background:rgba(255,255,255,0.08); }
+  .offers-preview-cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .offers-preview-card { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px 18px; }
+  .offers-preview-card .opc-label { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .offers-preview-card .opc-title { font-size:0.95rem; font-weight:700; color:white; margin-bottom:4px; }
+  .offers-preview-card .opc-sub { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+  .offers-preview-card.dark { background:rgba(255,255,255,0.04); }
+
+  /* Filter + search bar */
+  .offers-filter-bar { background:white; border-bottom:1px solid var(--border); padding:18px 28px; position:sticky; top:64px; z-index:90; box-shadow:0 2px 12px rgba(31,54,103,0.05); }
+  .offers-filter-inner { max-width:1160px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .offers-search { display:flex; align-items:center; gap:8px; background:var(--off-white); border:1.5px solid var(--border); border-radius:24px; padding:8px 16px; flex:1; max-width:320px; }
+  .offers-search input { border:none; background:transparent; font-family:"Inter",sans-serif; font-size:0.85rem; color:var(--navy); outline:none; width:100%; }
+  .offers-search input::placeholder { color:var(--grey); }
+  .offers-cat-pills { display:flex; flex-wrap:wrap; gap:8px; flex:1; }
+  .offers-cat-pill { padding:6px 14px; border-radius:20px; font-size:0.78rem; font-weight:600; border:1.5px solid var(--border); background:white; color:var(--grey); cursor:pointer; transition:all 0.18s; white-space:nowrap; }
+  .offers-cat-pill:hover { border-color:var(--gold); color:var(--navy); }
+  .offers-cat-pill.active { background:var(--navy); border-color:var(--navy); color:white; }
+  .offers-count { font-size:0.8rem; color:var(--grey); font-weight:500; white-space:nowrap; margin-left:auto; }
+
+  /* Offers main */
+  .offers-main { max-width:1160px; margin:0 auto; padding:48px 28px 96px; }
+  .offers-grid-label { font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:20px; }
+
+  @media (min-width:640px) {
+    .offers-hero-inner { grid-template-columns:1fr 1fr; }
+  }
+  @media (min-width:1024px) {
+    .offers-hero { padding:80px 56px 64px; }
+    .offers-filter-bar { padding:18px 56px; top:68px; }
+    .offers-main { padding:56px 56px 96px; }
+    .nav-offers { padding:6px 12px !important; }
+  }
 </style>
 </head>
 <body>
@@ -918,6 +1042,7 @@
     <a href="#founders">First Founders</a>
     <a href="#podcast">Podcast</a>
     <a href="#" onclick="showPage('page-resources');return false;">Resources</a>
+    <a href="#" onclick="showPage('page-offers');return false;" class="nav-offers">⭐ FC Offers</a>
     <a href="#sponsors">Sponsors</a>
     <a href="#contact">Contact</a>
     <a class="nav-cta" onclick="openModal('contactModal')">Get In Touch</a>
@@ -1315,6 +1440,7 @@
     <a href="#" onclick="showPage('page-main');return false;">First Founders</a>
     <a href="#" onclick="showPage('page-main');return false;">Podcast</a>
     <a href="#" onclick="showPage('page-resources');return false;">Resources</a>
+    <a href="#" onclick="showPage('page-offers');return false;" class="nav-offers">⭐ FC Offers</a>
     <a href="#" onclick="showPage('page-main');return false;">Sponsors</a>
     <a href="#" onclick="showPage('page-main');return false;">Contact</a>
     <a class="nav-cta" onclick="showPage('page-main');openModal('contactModal');">Get In Touch</a>
@@ -1413,6 +1539,47 @@
 </div><!-- /page-events -->
 
 
+<!-- ── OFFER SUBMISSION MODAL ── -->
+<div id="offer-modal-overlay" class="offer-modal-overlay" onclick="closeOfferModal(event)">
+  <div class="offer-modal" role="dialog" aria-modal="true">
+    <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">&times;</button>
+    <div id="offer-form-wrap">
+      <h2>Submit your business offer</h2>
+      <p class="sub">Approved offers are shown free to the First Connections community. We review all submissions within 2 business days.</p>
+      <div class="offer-form-row">
+        <div class="offer-field"><label>Business name <span class="offer-req">*</span></label><input type="text" id="of-bizname" placeholder="Acme Ltd"></div>
+        <div class="offer-field"><label>Industry / sector <span class="offer-req">*</span></label><input type="text" id="of-sector" placeholder="Accountancy"></div>
+      </div>
+      <div class="offer-field"><label>Short description <span class="offer-req">*</span></label><textarea id="of-desc" placeholder="One or two sentences about your business..."></textarea></div>
+      <div class="offer-form-row">
+        <div class="offer-field"><label>Offer headline <span class="offer-req">*</span></label><input type="text" id="of-headline" placeholder="Free consultation"></div>
+        <div class="offer-field"><label>Offer detail</label><input type="text" id="of-detail" placeholder="60 mins, no obligation"></div>
+      </div>
+      <div class="offer-form-row">
+        <div class="offer-field"><label>Discount code</label><input type="text" id="of-code" placeholder="CODE10"></div>
+        <div class="offer-field"><label>Website URL <span class="offer-req">*</span></label><input type="url" id="of-url" placeholder="https://yourbusiness.co.uk"></div>
+      </div>
+      <div class="offer-form-row">
+        <div class="offer-field"><label>Logo URL <span style="font-weight:400;color:var(--grey)">(optional)</span></label><input type="url" id="of-logo" placeholder="https://yourbusiness.co.uk/logo.png"></div>
+        <div class="offer-field"><label>Town / City <span class="offer-req">*</span></label><input type="text" id="of-town" placeholder="e.g. Newcastle, Darlington, Durham..."></div>
+      </div>
+      <div class="offer-form-row">
+        <div class="offer-field"><label>Your name <span class="offer-req">*</span></label><input type="text" id="of-cname" placeholder="Jane Smith"></div>
+        <div class="offer-field"><label>Your email <span class="offer-req">*</span></label><input type="email" id="of-cemail" placeholder="jane@yourbusiness.co.uk"></div>
+      </div>
+      <button class="offer-submit-btn" id="of-submit-btn" onclick="submitOfferForm()">
+        <span id="of-submit-txt">Submit for review</span>
+      </button>
+      <p class="offer-form-note">Required fields <span class="offer-req">*</span> &nbsp;&middot;&nbsp; We never share your contact details</p>
+    </div>
+    <div class="offer-success" id="offer-success">
+      <div class="offer-success-icon">&#10003;</div>
+      <h3>Submission received!</h3>
+      <p>Thank you. We'll review it within 2 business days and be in touch at the email you provided.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ════════════════════════════════════════
      PAGE: RESOURCES (id="page-resources")
 ════════════════════════════════════════ -->
@@ -1431,6 +1598,7 @@
     <a href="#" onclick="showPage('page-main');return false;">First Founders</a>
     <a href="#" onclick="showPage('page-main');return false;">Podcast</a>
     <a href="#" style="color:var(--gold);">Resources</a>
+    <a href="#" onclick="showPage('page-offers');return false;" class="nav-offers">⭐ FC Offers</a>
     <a href="#" onclick="showPage('page-main');return false;">Sponsors</a>
     <a href="#" onclick="showPage('page-main');return false;">Contact</a>
     <a class="nav-cta" onclick="showPage('page-main');openModal('contactModal');">Get In Touch</a>
@@ -1736,7 +1904,7 @@
   </div>
 
   <!-- CTA BANNER -->
-  <div class="res-cta-banner fade-in">
+    <div class="res-cta-banner fade-in">
     <h2>Want your business <em>featured here?</em></h2>
     <p>We're always looking for great local businesses to partner with. If you'd like your offer featured or have a discount to share with the First Connections community, get in touch.</p>
     <button class="res-cta-btn" onclick="showPage('page-main');openModal('contactModal');">📬 Get In Touch</button>
@@ -1745,6 +1913,96 @@
 </div><!-- /resources-main -->
 
 </div><!-- /page-resources -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: FC OFFERS (id="page-offers")
+════════════════════════════════════════ -->
+<div class="page" id="page-offers">
+
+<!-- ── OFFERS NAV ── -->
+<nav>
+  <div class="logo" onclick="showPage('page-main')" style="cursor:pointer;">First <em>Connections</em></div>
+  <button class="hamburger" id="menuBtnO" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navMenuO">
+    <a href="#" onclick="showPage('page-main');return false;">About</a>
+    <a href="#" onclick="showPage('page-main');return false;">Our Network</a>
+    <a href="#" onclick="showPage('page-events');return false;">Events</a>
+    <a href="#" onclick="showPage('page-main');return false;">First Founders</a>
+    <a href="#" onclick="showPage('page-main');return false;">Podcast</a>
+    <a href="#" onclick="showPage('page-resources');return false;">Resources</a>
+    <a href="#" style="color:var(--gold);" class="nav-offers">⭐ FC Offers</a>
+    <a href="#" onclick="showPage('page-main');return false;">Sponsors</a>
+    <a href="#" onclick="showPage('page-main');return false;">Contact</a>
+    <a class="nav-cta" onclick="showPage('page-main');openModal('contactModal');">Get In Touch</a>
+  </div>
+</nav>
+
+<!-- ── OFFERS HERO ── -->
+<div class="offers-hero">
+  <div class="offers-hero-inner">
+    <div>
+      <div class="offers-hero-label">Community Marketplace · Live</div>
+      <h1>Deals from the <em>First Connections</em> community</h1>
+      <p>Exclusive discounts and offers submitted by local North East businesses. Free to browse. Free to list. Reviewed and approved before going live.</p>
+      <div class="offers-hero-btns">
+        <button class="btn-submit" onclick="openOfferModal()">+ Submit your offer</button>
+        <a class="btn-browse" href="#offers-grid-anchor">Browse offers</a>
+      </div>
+    </div>
+    <div class="offers-preview-cards">
+      <div class="offers-preview-card">
+        <div class="opc-label">Free</div>
+        <div class="opc-title">Strategy Call</div>
+        <div class="opc-sub">Local consultancy</div>
+      </div>
+      <div class="offers-preview-card">
+        <div class="opc-label">25% Off</div>
+        <div class="opc-title">Brand Photos</div>
+        <div class="opc-sub">North East studio</div>
+      </div>
+      <div class="offers-preview-card">
+        <div class="opc-label">Buy One</div>
+        <div class="opc-title">Get One Free</div>
+        <div class="opc-sub">Local café, High Row</div>
+      </div>
+      <div class="offers-preview-card dark">
+        <div class="opc-label" style="color:var(--gold-light);">Your Offer</div>
+        <div class="opc-title">Get listed free</div>
+        <div class="opc-sub">Submit today</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FILTER + SEARCH BAR ── -->
+<div class="offers-filter-bar" id="offers-grid-anchor">
+  <div class="offers-filter-inner">
+    <div class="offers-search">
+      <span style="color:var(--grey);font-size:0.9rem;">🔍</span>
+      <input type="text" id="offers-search-input" placeholder="Search offers, businesses..." oninput="filterOffers()">
+    </div>
+    <div class="offers-cat-pills" id="offers-cat-pills">
+      <button class="offers-cat-pill active" data-cat="all" onclick="setOffersCat(this)">All</button>
+    </div>
+    <span class="offers-count" id="offers-count"></span>
+  </div>
+</div>
+
+<!-- ── OFFERS MAIN ── -->
+<div class="offers-main">
+  <div class="offers-grid-label">ALL COMMUNITY OFFERS</div>
+  <div class="community-grid" id="community-offers-grid">
+    <div class="coc-loading">
+      <div class="coc-spinner"></div>
+      Loading community offers...
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-offers -->
 
 <!-- ── FOOTER ── -->
 <footer>
@@ -1969,6 +2227,8 @@
       var el = document.getElementById(id);
       if (el) el.classList.remove("open");
     });
+    // Load community offers when offers page is shown
+    if(pageId === 'page-offers') loadCommunityOffers();
   }
 
   // ── NAV HAMBURGER — unified handler for all three navs ──
@@ -2015,6 +2275,7 @@
   initNav("menuBtn",  "navMenu");
   initNav("menuBtnR", "navMenuR");
   initNav("menuBtnE", "navMenuE");
+  initNav("menuBtnO", "navMenuO");
 
   // ── RESOURCES FILTER ──
   var filterPills = document.querySelectorAll(".filter-pill");
@@ -2052,6 +2313,206 @@
     entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
   }, { threshold: 0.08 });
   document.querySelectorAll("#page-resources .fade-in").forEach(function(el) { resObserver.observe(el); });
+
+  /* ── AIRTABLE COMMUNITY OFFERS ── */
+  var _t1='patGMsRmnhKEdu3i9.6c',_t2='c95e575e7bc045354ad23d46104665',_t3='03d56e649b2aa3c5fb93738445e1314b';
+  var AT_TOKEN=_t1+_t2+_t3;
+  var AT_BASE='appzNaWxLuQstEUSX';
+  var AT_TABLE='tblrQUho0RGnhh03V';
+  var AT_SITE='First Connections';
+  var AT_API='https://api.airtable.com/v0/';
+  var offersLoaded=false;
+
+  function loadCommunityOffers(){
+    if(offersLoaded) return;
+    var grid=document.getElementById('community-offers-grid');
+    if(!grid) return;
+    var filter='AND({Approved}=1,OR({Site}="'+AT_SITE+'",{Site}="All Sites"))';
+    var url=AT_API+AT_BASE+'/'+AT_TABLE
+      +'?filterByFormula='+encodeURIComponent(filter)
+      +'&fields[]=Business+Name&fields[]=Sector&fields[]=Description'
+      +'&fields[]=Offer+Headline&fields[]=Offer+Detail&fields[]=Discount+Code'
+      +'&fields[]=Website+URL&fields[]=Logo+URL&fields[]=Town+%2F+City'
+      +'&sort[0][field]=Business+Name&sort[0][direction]=asc';
+    fetch(url,{headers:{'Authorization':'Bearer '+AT_TOKEN,'Content-Type':'application/json'}})
+    .then(function(r){return r.json();})
+    .then(function(data){
+      offersLoaded=true;
+      allOfferRecords = data.records||[];
+      buildCategoryPills(allOfferRecords);
+      var countEl = document.getElementById('offers-count');
+      if(countEl) countEl.textContent = allOfferRecords.length + ' offer' + (allOfferRecords.length !== 1 ? 's' : '');
+      renderOfferCards(allOfferRecords,grid);
+    })
+    .catch(function(){
+      grid.innerHTML='<div class="coc-empty">Could not load offers. Please try again later.</div>';
+      appendSubmitCard(grid);
+    });
+  }
+
+  /* ── OFFERS CATEGORY + SEARCH FILTER ── */
+  var allOfferRecords = [];
+
+  function setOffersCat(btn){
+    document.querySelectorAll('.offers-cat-pill').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    filterOffers();
+  }
+
+  function filterOffers(){
+    var cat = (document.querySelector('.offers-cat-pill.active')||{}).getAttribute('data-cat')||'all';
+    var query = ((document.getElementById('offers-search-input')||{}).value||'').toLowerCase().trim();
+    var grid = document.getElementById('community-offers-grid');
+    if(!grid) return;
+    var filtered = allOfferRecords.filter(function(rec){
+      var f = rec.fields;
+      var matchCat = cat === 'all' || (f['Sector']||'').toLowerCase() === cat;
+      var matchSearch = !query ||
+        (f['Business Name']||'').toLowerCase().includes(query) ||
+        (f['Offer Headline']||'').toLowerCase().includes(query) ||
+        (f['Sector']||'').toLowerCase().includes(query) ||
+        (f['Description']||'').toLowerCase().includes(query);
+      return matchCat && matchSearch;
+    });
+    renderOfferCards(filtered, grid, true);
+    var countEl = document.getElementById('offers-count');
+    if(countEl) countEl.textContent = filtered.length + ' offer' + (filtered.length !== 1 ? 's' : '');
+  }
+
+  function buildCategoryPills(records){
+    var sectors = {};
+    records.forEach(function(rec){
+      var s = (rec.fields['Sector']||'').trim();
+      if(s) sectors[s] = (sectors[s]||0) + 1;
+    });
+    var pillsEl = document.getElementById('offers-cat-pills');
+    if(!pillsEl) return;
+    pillsEl.innerHTML = '<button class="offers-cat-pill active" data-cat="all" onclick="setOffersCat(this)">All ' + records.length + '</button>';
+    Object.keys(sectors).sort().forEach(function(s){
+      pillsEl.insertAdjacentHTML('beforeend',
+        '<button class="offers-cat-pill" data-cat="'+s.toLowerCase()+'" onclick="setOffersCat(this)">'+s+' '+sectors[s]+'</button>');
+    });
+  }
+
+  function renderOfferCards(records,grid,skipSubmit){
+    grid.innerHTML='';
+    records.forEach(function(rec){
+      var f=rec.fields;
+      var biz=f['Business Name']||'';
+      var initials=biz.split(' ').map(function(w){return w[0]||'';}).join('').substring(0,2).toUpperCase();
+      var logo=f['Logo URL']||'';
+      var logoHtml=logo?'<img src="'+logo+'" alt="'+biz+'" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">':initials;
+      var code=f['Discount Code']||'';
+      var detail=f['Offer Detail']||'';
+      var town=f['Town / City']||'';
+      grid.insertAdjacentHTML('beforeend',
+        '<div class="community-offer-card">'
+        +'<div class="coc-header"><div class="coc-logo">'+logoHtml+'</div>'
+        +'<div><p class="coc-name">'+esc(biz)+'</p>'
+        +'<p class="coc-sector">'+esc(f['Sector']||'')+(town?' &middot; '+esc(town):'')+'</p></div>'
+        +'<span class="coc-badge">FC Community</span></div>'
+        +'<div class="coc-body">'
+        +'<div class="coc-offer-badge"><div>'
+        +'<p class="coc-offer-value">'+esc(f['Offer Headline']||'')+'</p>'
+        +(detail?'<p class="coc-offer-detail">'+esc(detail)+'</p>':'')
+        +(code?'<p class="coc-offer-code">Code: '+esc(code)+'</p>':'')
+        +'</div></div>'
+        +'<p class="coc-desc">'+esc(f['Description']||'')+'</p>'
+        +'<a href="'+(f['Website URL']||'#')+'" target="_blank" rel="noopener" class="coc-link">Visit website &rarr;</a>'
+        +'</div></div>');
+    });
+    if(!records.length){
+      grid.insertAdjacentHTML('beforeend','<div class="coc-empty">No offers match your search — try a different filter or <span style="color:var(--gold);cursor:pointer;font-weight:600;" onclick="openOfferModal()">submit your own</span>!</div>');
+    }
+    if(!skipSubmit) appendSubmitCard(grid);
+  }
+
+  function esc(str){
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function appendSubmitCard(grid){
+    grid.insertAdjacentHTML('beforeend',
+      '<div class="coc-submit-card" onclick="openOfferModal()">'
+      +'<div class="coc-submit-icon">+</div>'
+      +'<p class="coc-submit-title">Submit your offer</p>'
+      +'<p class="coc-submit-desc">Share a deal with the First Connections community — free, reviewed within 2 business days.</p>'
+      +'<button style="background:var(--gold);color:white;border:none;border-radius:8px;padding:8px 20px;font-weight:700;font-size:0.82rem;cursor:pointer;font-family:Inter,sans-serif;" onclick="openOfferModal();event.stopPropagation()">Get listed free</button>'
+      +'</div>');
+  }
+
+  function openOfferModal(){
+    var o=document.getElementById('offer-modal-overlay');
+    if(o){o.classList.add('open');document.body.style.overflow='hidden';}
+  }
+  function closeOfferModal(e){
+    if(e&&e.type==='click'&&e.target!==document.getElementById('offer-modal-overlay')) return;
+    var o=document.getElementById('offer-modal-overlay');
+    if(o) o.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  function submitOfferForm(){
+    var biz=(document.getElementById('of-bizname')||{}).value||'';
+    var sector=(document.getElementById('of-sector')||{}).value||'';
+    var desc=(document.getElementById('of-desc')||{}).value||'';
+    var headline=(document.getElementById('of-headline')||{}).value||'';
+    var detail=(document.getElementById('of-detail')||{}).value||'';
+    var code=(document.getElementById('of-code')||{}).value||'';
+    var url=(document.getElementById('of-url')||{}).value||'';
+    var logo=(document.getElementById('of-logo')||{}).value||'';
+    var town=(document.getElementById('of-town')||{}).value||'';
+    var cname=(document.getElementById('of-cname')||{}).value||'';
+    var cemail=(document.getElementById('of-cemail')||{}).value||'';
+    biz=biz.trim();sector=sector.trim();desc=desc.trim();headline=headline.trim();
+    url=url.trim();town=town.trim();cname=cname.trim();cemail=cemail.trim();
+    if(!biz||!sector||!desc||!headline||!url||!town||!cname||!cemail){
+      alert('Please fill in all required fields.');return;
+    }
+    var btn=document.getElementById('of-submit-btn');
+    var txt=document.getElementById('of-submit-txt');
+    if(btn) btn.disabled=true;
+    if(txt) txt.textContent='Submitting...';
+    var fields={
+      'Business Name':biz,'Sector':sector,'Description':desc,
+      'Offer Headline':headline,'Site':AT_SITE,'Town / City':town,
+      'Contact Name':cname,'Contact Email':cemail
+    };
+    if(detail.trim()) fields['Offer Detail']=detail.trim();
+    if(code.trim())   fields['Discount Code']=code.trim();
+    if(url)           fields['Website URL']=url;
+    if(logo.trim())   fields['Logo URL']=logo.trim();
+    fetch(AT_API+AT_BASE+'/'+AT_TABLE,{
+      method:'POST',
+      headers:{'Authorization':'Bearer '+AT_TOKEN,'Content-Type':'application/json'},
+      body:JSON.stringify({fields:fields})
+    })
+    .then(function(r){
+      if(r.ok||r.status===200||r.status===201){
+        document.getElementById('offer-form-wrap').style.display='none';
+        document.getElementById('offer-success').style.display='block';
+        offersLoaded=false;
+        setTimeout(function(){
+          closeOfferModal();
+          document.getElementById('offer-form-wrap').style.display='';
+          document.getElementById('offer-success').style.display='none';
+          if(btn) btn.disabled=false;
+          if(txt) txt.textContent='Submit for review';
+        },4000);
+      } else {
+        r.json().then(function(e){console.error('Airtable error:',e);});
+        if(btn) btn.disabled=false;
+        if(txt) txt.textContent='Submit for review';
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(function(){
+      if(btn) btn.disabled=false;
+      if(txt) txt.textContent='Submit for review';
+      alert('Connection error. Please try again.');
+    });
+  }
+
 </script>
 </body>
 </html>
